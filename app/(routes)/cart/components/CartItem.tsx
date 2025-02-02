@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
-import { X } from 'lucide-react'
+// import { X } from 'lucide-react'
 
 import { Product } from '@/types'
 import IconButton from '@/components/ui/iconButton'
@@ -34,7 +34,8 @@ const CartItem: React.FC<CartItemProps> = ({data}) => {
             <div className='absolute z-10 right-0 top-0'>
                 <IconButton 
                     onClick={onRemove}
-                    icon={<X size={15} />}
+                    // icon={<X size={15} />}
+                    icon="X"
                 />
             </div>
             <div className='relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0'>

@@ -1,7 +1,7 @@
 "use client"
 
 import React, {useState} from 'react'
-import { Filter as FilterIcon, X } from 'lucide-react';
+import { Filter as FilterIcon } from 'lucide-react';
 
 import { Color, Size } from '@/types';
 import Button from '@/components/ui/button';
@@ -32,7 +32,8 @@ const MobileFilters: React.FC<MobileFiltersProps> = ({sizes, colors}) => {
           <DialogPanel className={'relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl'}>
             <div className='flex items-center justify-end px-4'>
               <IconButton 
-                icon={<X size={15} />} 
+                // icon={<X size={15} />} 
+                icon="X"
                 onClick={onClose}
               />
             </div>
