@@ -22,14 +22,10 @@ const Summary = () => {
     const totalPrice = subTotalPrice + 0 // Shipping charge
 
     const onCheckOut = async () => {
-        try {
-            const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
-                productIds: items.map((item) => item.id)
-            })
-            window.location = res.data.url
-        } catch (error) {
-            toast.error('Something went wrong.')
-        }
+        const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
+            productIds: items.map((item) => item.id)
+        })
+        window.location = res.data.url
     }
 
     useEffect(() => {
