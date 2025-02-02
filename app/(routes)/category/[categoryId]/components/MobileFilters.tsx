@@ -1,7 +1,8 @@
 "use client"
 
 import React, {useState} from 'react'
-import { Filter as FilterIcon } from 'lucide-react';
+// import { Filter as FilterIcon } from 'lucide-react';
+const FilterIcon = React.lazy(() => import("lucide-react").then((module) => ({ default: module.Filter })));
 
 import { Color, Size } from '@/types';
 import Button from '@/components/ui/button';
