@@ -2,7 +2,8 @@
 
 import React from 'react'
 import { useRouter, useSearchParams } from 'next/navigation';
-import qs from 'query-string'
+// import qs from 'query-string'
+const qs = require("query-string");
 
 import { Color, Size } from '@/types';
 import Button from '@/components/ui/button';

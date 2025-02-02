@@ -1,4 +1,5 @@
-import qs from "query-string";
+// import qs from "query-string";
+const qs = require("query-string");
 
 import { Product } from "@/types";
 
