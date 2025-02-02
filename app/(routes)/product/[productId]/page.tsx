@@ -10,7 +10,7 @@ import Info from '@/components/Info'
 const ProductViewPage = async ({params}: {params: {productId: string}}) => {
   const product = await getSingleProduct(params.productId)
   const suggestedProducts = await getProducts({
-    // @ts-ignore
+    // @ts-expect-error I did it intentionally
     categoryId: product?.categoryId
   })
   return (
@@ -18,10 +18,10 @@ const ProductViewPage = async ({params}: {params: {productId: string}}) => {
       <Container>
         <div className='px-4 py-10 sm:px-6'>
           <div className='lg:grid lg:grid-cols-2 lg:gap-x-8 lg:items-start'>
-            {/* @ts-ignore */}
+            {/* @ts-expect-error I did it intentionally */}
             <Gallery images={product.images}/>
             <div className='mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0'>
-              {/* @ts-ignore */}
+              {/* @ts-expect-error I did it intentionally */}
               <Info product={product} />
             </div>
           </div>

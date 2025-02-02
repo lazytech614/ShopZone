@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
-import { Tab, TabGroup } from '@headlessui/react'
+import { Tab } from '@headlessui/react'
 
 import { Image as ImageType } from '@/types'
 import GalleryTab from '@/components/gallery/galleryTab'
