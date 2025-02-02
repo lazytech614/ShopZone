@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": false,
     "strict": true,
@@ -14,26 +18,36 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./*"
+      ]
     },
-    "plugins": [{
-      "name": "next",
-      "options": {
-        "clientRouterFilters": {
-          "dynamicParams": true
+    "plugins": [
+      {
+        "name": "next",
+        "options": {
+          "clientRouterFilters": {
+            "dynamicParams": true
+          }
         }
       }
-    }],
-    "typeRoots": ["./node_modules/@types", "./src/@types"],
-    "types": ["node"],
+    ],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/@types"
+    ],
+    "types": [
+      "node"
+    ],
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true
   },
   "include": [
-    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "next.config.js"
+    "next-env.d.ts",
+    "next.config.js",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",
