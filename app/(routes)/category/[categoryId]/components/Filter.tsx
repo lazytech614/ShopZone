@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { useRouter, useSearchParams } from 'next/navigation';
-import queryString from 'query-string'
+// import qs from 'query-string'
 // const qs = require("query-string");
 
 import { Color, Size } from '@/types';
@@ -15,7 +15,7 @@ interface FilterProps {
     data: (Size | Color)[];
 }
 
-const Filter: React.FC<FilterProps> = ({
+const Filter: React.FC<FilterProps> = async ({
     valueKey,
     name,
     data
@@ -25,8 +25,9 @@ const Filter: React.FC<FilterProps> = ({
 
     const selectedValue = searchParams.get(valueKey)
 
+    const qs = await import("query-string").then(m => m.default || m);
     const onClick = (id: string) => {
-        const current = queryString.parse(searchParams.toString())
+        const current = qs.parse(searchParams.toString())
 
         const query = {
             ...current,
@@ -37,7 +38,7 @@ const Filter: React.FC<FilterProps> = ({
             query[valueKey] = null
         }
 
-        const url = queryString.stringifyUrl({
+        const url = qs.stringifyUrl({
             url: window.location.href,
             query
         }, { skipNull: true })
