@@ -1,71 +1,79 @@
-"use client"
+"use client";
 
-import React from 'react'
-import { useRouter, useSearchParams } from 'next/navigation';
-// import qs from 'query-string'
-// const qs = require("query-string");
+import React, { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
-import { Color, Size } from '@/types';
-import Button from '@/components/ui/button';
-import { cn } from '@/lib/utils';
+import { Color, Size } from "@/types";
+import Button from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface FilterProps {
-    valueKey: string;
-    name: string;
-    data: (Size | Color)[];
+  valueKey: string;
+  name: string;
+  data: (Size | Color)[];
 }
 
-const Filter: React.FC<FilterProps> = async ({
-    valueKey,
-    name,
-    data
-}) => {
-    const searchParams = useSearchParams()
-    const router = useRouter()
+const Filter: React.FC<FilterProps> = ({ valueKey, name, data }) => {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const [qs, setQs] = useState<any>(null);
 
-    const selectedValue = searchParams.get(valueKey)
+  const selectedValue = searchParams.get(valueKey);
 
-    const qs = await import("query-string").then(m => m.default || m);
-    const onClick = (id: string) => {
-        const current = qs.parse(searchParams.toString())
+  useEffect(() => {
+    const importQs = async () => {
+      const qsModule = await import("query-string");
+      setQs(qsModule.default || qsModule);
+    };
 
-        const query = {
-            ...current,
-            [valueKey]: id
-        }
+    importQs();
+  }, []);
 
-        if (current[valueKey] === id) {
-            query[valueKey] = null
-        }
+  const onClick = (id: string) => {
+    if (!qs) return; // Prevent errors if qs hasn't loaded yet
 
-        const url = qs.stringifyUrl({
-            url: window.location.href,
-            query
-        }, { skipNull: true })
+    const current = qs.parse(searchParams.toString());
+    const query = {
+      ...current,
+      [valueKey]: id,
+    };
 
-        router.push(url)
+    if (current[valueKey] === id) {
+      query[valueKey] = null;
     }
 
-  return (
-    <div className='mb-8'>
-        <h3 className='text-lg font-semibold'>
-            {name}
-        </h3>
-        <hr className='my-4' />
-        <div className='flex flex-wrap gap-2'>
-            {data.map((filter) => (
-                <div key={filter.id} className="flex items-center">
-                    <Button
-                        className={cn("rounded-md text-sm text-gray-800 p-2 bg-white border border-gray-300", selectedValue === filter.id && "bg-black text-white")}
-                        onClick={() => onClick(filter.id)}
-                    >
-                        {filter.name}
-                    </Button>
-                </div>
-            ))}
-        </div>
-    </div>
-  )
-}
+    const url = qs.stringifyUrl(
+      {
+        url: window.location.href,
+        query,
+      },
+      { skipNull: true }
+    );
 
-export default Filter
+    router.push(url);
+  };
+
+  return (
+    <div className="mb-8">
+      <h3 className="text-lg font-semibold">{name}</h3>
+      <hr className="my-4" />
+      <div className="flex flex-wrap gap-2">
+        {data.map((filter) => (
+          <div key={filter.id} className="flex items-center">
+            <Button
+              className={cn(
+                "rounded-md text-sm text-gray-800 p-2 bg-white border border-gray-300",
+                selectedValue === filter.id && "bg-black text-white"
+              )}
+              onClick={() => onClick(filter.id)}
+            >
+              {filter.name}
+            </Button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Filter;
