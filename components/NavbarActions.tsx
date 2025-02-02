@@ -1,7 +1,8 @@
 "use client"
 
 import React, {useEffect, useState} from 'react'
-import { ShoppingBag } from 'lucide-react'
+// import { ShoppingBag } from 'lucide-react'
+const ShoppingBag = React.lazy(() => import("lucide-react").then((module) => ({ default: module.ShoppingBag })));
 import { useRouter } from 'next/navigation'
 
 import Button from '@/components/ui/button'
