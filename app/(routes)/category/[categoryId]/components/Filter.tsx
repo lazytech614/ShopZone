@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { useRouter, useSearchParams } from 'next/navigation';
-import qs from 'query-string'
+import queryString from 'query-string'
 // const qs = require("query-string");
 
 import { Color, Size } from '@/types';
@@ -26,7 +26,7 @@ const Filter: React.FC<FilterProps> = ({
     const selectedValue = searchParams.get(valueKey)
 
     const onClick = (id: string) => {
-        const current = qs.parse(searchParams.toString())
+        const current = queryString.parse(searchParams.toString())
 
         const query = {
             ...current,
@@ -37,7 +37,7 @@ const Filter: React.FC<FilterProps> = ({
             query[valueKey] = null
         }
 
-        const url = qs.stringifyUrl({
+        const url = queryString.stringifyUrl({
             url: window.location.href,
             query
         }, { skipNull: true })

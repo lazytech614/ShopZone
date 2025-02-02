@@ -1,4 +1,4 @@
-import qs from "query-string";
+import queryString from "query-string";
 // const qs = require("query-string");
 
 import { Product } from "@/types";
@@ -13,7 +13,7 @@ interface Query {
 }
 
 const getProducts: (query: Query) => Promise<Product[]> = async (query): Promise<Product[]> => {
-    const url = qs.stringifyUrl({
+    const url = queryString.stringifyUrl({
         url: URL,
         query: {
             categoryId: query.categoryId,

@@ -1,7 +1,6 @@
 {
   "name": "04-e-commerce-store",
   "version": "0.1.0",
-  "type": "commonjs",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
