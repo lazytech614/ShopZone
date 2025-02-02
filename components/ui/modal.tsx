@@ -2,6 +2,7 @@
 
 import React from "react"
 // import { X } from "lucide-react"
+const X = React.lazy(() => import("lucide-react").then((module) => ({ default: module.X })));
 
 import { 
     Dialog, 
@@ -42,8 +43,7 @@ export default function Modal({isOpen, onClose, children}: ModalProps) {
                                     <div className="absolute right-4 top-4 sm:right-6 sm:top-6">
                                         <IconButton 
                                             onClick={onClose}
-                                            // icon={<X size={15} />}
-                                            icon="X"
+                                            icon={<X size={15} />}
                                         />
                                     </div>
                                     {children}

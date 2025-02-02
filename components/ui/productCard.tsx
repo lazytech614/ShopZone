@@ -2,7 +2,9 @@
 
 import React, { MouseEventHandler } from 'react'
 import Image from 'next/image'
-import { Expand, ShoppingCart } from 'lucide-react'
+// import { Expand, ShoppingCart } from 'lucide-react'
+const Expand = React.lazy(() => import("lucide-react").then((module) => ({ default: module.Expand })));
+const ShoppingCart = React.lazy(() => import("lucide-react").then((module) => ({ default: module.ShoppingCart })));
 import { useRouter } from 'next/navigation'
 
 import { Product } from '@/types'
