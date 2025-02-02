@@ -3,6 +3,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { Expand, ShoppingCart } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 
 import { Product } from '@/types'
 import IconButton from '@/components/ui/iconButton'
@@ -13,8 +14,13 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({product}) => {
+    const router = useRouter()
+    const handleClick = () => {
+        router.push(`/product/${product?.id}`)
+    }
+    
   return (
-    <div className='bg-white group cursor-pointer rounded-xl border p-3 space-y-4'>
+    <div onClick={handleClick} className='bg-white group cursor-pointer rounded-xl border p-3 space-y-4'>
         <div className='aspect-square bg-gray-100 relative'>
             <Image src={product?.images?.[0].imageUrl} alt={product.name} fill className='aspect-square object-cover rounded-md'/>
             <div className='opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5'>
