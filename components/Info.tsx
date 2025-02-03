@@ -4,7 +4,7 @@ import React from 'react'
 
 import { Product } from '@/types'
 import Currency from '@/components/ui/currency'
-import Button from '@/components/ui/button'
+import { Button } from '@/components/ui/button'
 // import { ShoppingCart } from 'lucide-react'
 const ShoppingCart = React.lazy(() => import("lucide-react").then((module) => ({ default: module.ShoppingCart })));
 

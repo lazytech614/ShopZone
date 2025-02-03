@@ -5,7 +5,7 @@ import React, {useEffect, useState} from 'react'
 const ShoppingBag = React.lazy(() => import("lucide-react").then((module) => ({ default: module.ShoppingBag })));
 import { useRouter } from 'next/navigation'
 
-import Button from '@/components/ui/button'
+import { Button } from '@/components/ui/button'
 import useCart from '@/hooks/useCart'
 
 const NavbarActions = () => {

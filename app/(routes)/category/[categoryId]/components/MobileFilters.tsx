@@ -5,7 +5,7 @@ import React, {useState} from 'react'
 const FilterIcon = React.lazy(() => import("lucide-react").then((module) => ({ default: module.Filter })));
 
 import { Color, Size } from '@/types';
-import Button from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
 import { Dialog, DialogPanel } from '@headlessui/react';
 import IconButton from '@/components/ui/iconButton';
 import Filter from './Filter';
