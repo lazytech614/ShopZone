@@ -16,7 +16,9 @@ const HomePage = async () => {
   const activeBillboard = billboards.find((billboard: BillboardType) => billboard.isActive === true)
 
   const billboard = await getBillboard(activeBillboard?.id as string)
-  const products = await getProducts({})
+  const products = await getProducts({
+    isFeatured: true
+  })
 
   return (
     <Container>
