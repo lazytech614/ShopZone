@@ -5,11 +5,17 @@ import Billboard from '@/components/Billboard'
 import getBillboard from '@/actions/getBillboard'
 import getProducts from '@/actions/getProducts'
 import ProductList from '@/components/ProductList'
+import getAllBillboards from '@/actions/getAllBillboards'
+import { Billboard as BillboardType } from '@/types'
 
 export const revalidate = 0
 
 const HomePage = async () => {
-  const billboard = await getBillboard("1ca12870-8e7b-4167-8048-13f2e8b2e44b")
+  const billboards = await getAllBillboards();
+
+  const activeBillboard = billboards.find((billboard: BillboardType) => billboard.isActive === true)
+
+  const billboard = await getBillboard(activeBillboard?.id as string)
   const products = await getProducts({})
 
   return (

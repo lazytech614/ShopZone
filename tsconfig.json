@@ -1,65 +1,11 @@
-// {
-//   "compilerOptions": {
-//     "target": "es5",
-//     "lib": [
-//       "dom",
-//       "dom.iterable",
-//       "esnext"
-//     ],
-//     "allowJs": true,
-//     "skipLibCheck": false,
-//     "strict": true,
-//     "noEmit": true,
-//     "esModuleInterop": true,
-//     "module": "NodeNext",
-//     "moduleResolution": "NodeNext",
-//     "resolveJsonModule": true,
-//     "isolatedModules": true,
-//     "jsx": "preserve",
-//     "incremental": true,
-//     "paths": {
-//       "@/*": [
-//         "./*"
-//       ]
-//     },
-//     "plugins": [
-//       {
-//         "name": "next",
-//         "options": {
-//           "clientRouterFilters": {
-//             "dynamicParams": true
-//           }
-//         }
-//       }
-//     ],
-//     "typeRoots": [
-//       "./node_modules/@types",
-//       "./src/@types"
-//     ],
-//     "types": [
-//       "node"
-//     ],
-//     "forceConsistentCasingInFileNames": true,
-//     "allowSyntheticDefaultImports": true
-//   },
-//   "include": [
-//     "**/*.ts",
-//     "**/*.tsx",
-//     "next-env.d.ts",
-//     "next.config.js",
-//     ".next/types/**/*.ts"
-//   ],
-//   "exclude": [
-//     "node_modules",
-//     ".next/types"
-//   ]
-// }
-
-
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -71,27 +17,37 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "types": ["next"],
+    "types": [
+      "next"
+    ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./*"
+      ]
     },
     "forceConsistentCasingInFileNames": true,
     "allowImportingTsExtensions": true,
-    "plugins": [{
-      "name": "next",
-      "options": {
-        "clientRouterFilters": {
-          "dynamicParams": false
+    "plugins": [
+      {
+        "name": "next",
+        "options": {
+          "clientRouterFilters": {
+            "dynamicParams": false
+          }
         }
       }
-    }],
-    "typeRoots": ["./node_modules/@types", "./src/@types"]
+    ],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/@types"
+    ]
   },
   "include": [
-    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "next.config.js"
+    "next-env.d.ts",
+    "next.config.js",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",
