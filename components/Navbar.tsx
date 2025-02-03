@@ -11,11 +11,11 @@ const Navbar = async () => {
   return (
     <header className='border-b'>
         <Container>
-            <div className='flex items-center h-16 relative px-4 sm:px-6 lg:px-8'>
+            <div className='w-full flex items-center h-16 relative px-4 sm:px-6 lg:px-8'>
                 <Link href={`/`} className='ml-4 lg:ml-0 gap-x-2'>
                     <p className='font-bold text-xl'>ShopZone</p>
                 </Link>
-                <MainNav data={categories} />
+                <MainNav data={categories}/>
                 <NavbarActions />
             </div>
         </Container>
